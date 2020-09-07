@@ -34,14 +34,19 @@ function orbisius_ct_medicine_mesmerize_child_child_theme_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'orbisius_ct_medicine_mesmerize_child_child_theme_enqueue_styles' );
 
-if ( function_exists('register_sidebar') )
-  register_sidebar(array(
-    'name' => 'MemberPress Login Additional Column',
-    'id' => 'memberpress_login_additional_column',
-    'before_widget' => '<div class = "widgetizedArea">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
-  )
-);
+
+function medicine_memberpress_register_sidebar() {
+    register_sidebar(
+        array(
+        'id' => 'memberpress_login_additional_column',
+        'name' => __( 'MemberPress Login Additional Column' ),
+        'description' => __( 'Displays in Memberpress Login Pages' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'medicine_memberpress_register_sidebar' );
 
