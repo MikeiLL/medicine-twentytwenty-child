@@ -63,6 +63,10 @@ Version: 1.5
     font-size: 2rem;
 }
 
+.memberpress-login-page div.widget_elementor-library section.elementor-section {
+    padding: 2.5rem 0;
+}
+
 @media (min-width: 600px) {
     .memberpress-login-page .login-form-wrap .elementor-widget-container {
         float: right:
